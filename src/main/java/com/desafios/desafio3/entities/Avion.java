@@ -40,7 +40,7 @@ public class Avion {
 	
 	@Column(name = "estado_avion")
 	@Enumerated(EnumType.STRING)
-	private Estado estado;
+	private Estado estado = Estado.HABILITADO;
 
 	public Avion() {
 	}
@@ -50,7 +50,6 @@ public class Avion {
 		this.modelo = modelo;
 		this.velocidad = velocidad;
 		this.capacidad = capacidad;
-		this.estado = Estado.HABILITADO;
 	}
 
 	public Integer getId() {

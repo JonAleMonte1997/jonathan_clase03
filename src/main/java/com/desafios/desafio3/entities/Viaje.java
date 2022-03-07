@@ -31,7 +31,7 @@ public class Viaje {
 
 	@Column(name = "estado_viaje")
 	@Enumerated(EnumType.STRING)
-	private Estado estado;
+	private Estado estado = Estado.HABILITADO;
 	
 	public Viaje() {
 	}
@@ -39,7 +39,6 @@ public class Viaje {
 	public Viaje(@Size(max = 255) String destino, @Size(max = 255) String agencia) {
 		this.destino = destino;
 		this.agencia = agencia;
-		this.estado = Estado.HABILITADO;
 	}
 
 	public Integer getId() {
