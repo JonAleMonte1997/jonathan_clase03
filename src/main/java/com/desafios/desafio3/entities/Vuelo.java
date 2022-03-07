@@ -40,12 +40,12 @@ public class Vuelo {
 	@JoinColumn(name = "id_avion")
 	private Avion avion;
 	
-	@OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany
 	private Set<Pasajero> pasajeros;
 	
 	@Column(name = "estado_vuelo")
 	@Enumerated(EnumType.STRING)
-	private Estado estado;
+	private Estado estado = Estado.HABILITADO;
 
 	public Vuelo() {
 	}
@@ -56,7 +56,6 @@ public class Vuelo {
 		this.aeropuertoDestino = aeropuertoDestino;
 		this.avion = avion;
 		this.pasajeros = pasajeros;
-		this.estado = Estado.HABILITADO;
 	}
 
 	public Integer getId() {

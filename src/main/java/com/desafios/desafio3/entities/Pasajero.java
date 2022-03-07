@@ -38,26 +38,20 @@ public class Pasajero {
 	@ManyToOne
 	@JoinColumn(name = "id_viaje")
 	private Viaje viaje;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_vuelo")
-	private Vuelo vuelo;
 
 	@Column(name = "estado_vuelo")
 	@Enumerated(EnumType.STRING)
-	private Estado estado;
+	private Estado estado = Estado.HABILITADO;
 	
 	public Pasajero() {
 	}
 
 	public Pasajero(@Size(max = 255) String nombre, @Size(max = 255) String apellido,
-			@Size(min = 8, max = 8) String dni, Viaje viaje, Vuelo vuelo) {
+			@Size(min = 8, max = 8) String dni, Viaje viaje) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.viaje = viaje;
-		this.vuelo = vuelo;
-		this.estado = Estado.HABILITADO;
 	}
 
 	public Integer getId() {
@@ -98,14 +92,6 @@ public class Pasajero {
 
 	public void setViaje(Viaje viaje) {
 		this.viaje = viaje;
-	}
-
-	public Vuelo getVuelo() {
-		return vuelo;
-	}
-
-	public void setVuelo(Vuelo vuelo) {
-		this.vuelo = vuelo;
 	}
 
 	public Estado getEstado() {
